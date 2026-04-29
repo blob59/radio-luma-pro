@@ -1,0 +1,280 @@
+﻿<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Radio Luma PRO - Franco Ficara</title>
+
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --card: #151b2b;
+            --card-soft: #1d2638;
+            --text: #f5f7fb;
+            --muted: #aeb8cc;
+            --accent: #ffcc33;
+            --accent-2: #ff7a3d;
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: radial-gradient(circle at top, #24304a 0%, #0b0f19 45%, #05070d 100%);
+            color: var(--text);
+        }
+
+        header {
+            padding: 48px 20px 28px;
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 204, 51, 0.12);
+            color: var(--accent);
+            font-weight: bold;
+            margin-bottom: 18px;
+            border: 1px solid rgba(255, 204, 51, 0.35);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 7vw, 5rem);
+            letter-spacing: -2px;
+            line-height: 0.95;
+        }
+
+            h1 span {
+                color: var(--accent);
+            }
+
+        .subtitle {
+            max-width: 760px;
+            margin: 22px auto 0;
+            color: var(--muted);
+            font-size: 1.15rem;
+            line-height: 1.6;
+        }
+
+        main {
+            width: min(1100px, calc(100% - 32px));
+            margin: 0 auto 60px;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 24px;
+            align-items: stretch;
+            margin-top: 28px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+            border: 1px solid rgba(255,255,255,0.10);
+            border-radius: var(--radius);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+            overflow: hidden;
+        }
+
+        .player-card {
+            padding: 28px;
+        }
+
+        .player-title {
+            font-size: 1.7rem;
+            margin: 0 0 10px;
+        }
+
+        .player-text {
+            color: var(--muted);
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        audio {
+            width: 100%;
+            margin: 10px 0 18px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .btn {
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            padding: 13px 18px;
+            border-radius: 14px;
+            font-weight: bold;
+            color: #111827;
+            background: var(--accent);
+            display: inline-block;
+        }
+
+            .btn.secondary {
+                color: var(--text);
+                background: var(--card-soft);
+                border: 1px solid rgba(255,255,255,0.12);
+            }
+
+        .visual {
+            min-height: 360px;
+            display: grid;
+            place-items: center;
+            padding: 28px;
+            background: radial-gradient(circle at 70% 20%, rgba(255,204,51,0.25), transparent 30%), radial-gradient(circle at 20% 90%, rgba(255,122,61,0.20), transparent 32%), linear-gradient(135deg, #12192a, #070a12);
+        }
+
+        .logo-box {
+            text-align: center;
+        }
+
+        .logo-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            margin: 0 auto 22px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            color: #101522;
+            font-size: 4rem;
+            font-weight: 900;
+            box-shadow: 0 20px 60px rgba(255, 204, 51, 0.28);
+        }
+
+        .logo-box h2 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .logo-box p {
+            color: var(--muted);
+            margin-bottom: 0;
+        }
+
+        .stations {
+            margin-top: 28px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .station {
+            padding: 20px;
+            background: var(--card);
+            border-radius: 18px;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+            .station h3 {
+                margin: 0 0 8px;
+                color: var(--accent);
+            }
+
+            .station p {
+                margin: 0 0 14px;
+                color: var(--muted);
+                line-height: 1.5;
+            }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 30px 20px 50px;
+        }
+
+        @media (max-width: 850px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .stations {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding-top: 34px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="badge">Franco Ficara presenta</div>
+        <h1>Radio <span>Luma</span> PRO</h1>
+        <p class="subtitle">
+            Una radio online personale, ironica e luminosa: musica, compagnia,
+            piccoli pensieri e quel pizzico di impertinenza che tiene sveglio anche il telecomando.
+        </p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="card player-card">
+                <h2 class="player-title">Ascolta Radio Luma</h2>
+                <p class="player-text">
+                    Premi play per aprire il flusso della radio. Se il browser blocca la riproduzione automatica,
+                    basta un clic: anche le radio, ogni tanto, vogliono essere invitate con garbo.
+                </p>
+
+                <audio controls>
+                    <source src="https://radioluma.radio12345.com/" type="audio/mpeg">
+                    Il tuo browser non supporta il player audio.
+                </audio>
+
+                <div class="buttons">
+                    <a class="btn" href="https://radioluma.radio12345.com/" target="_blank" rel="noopener">
+                        Apri Radio Luma
+                    </a>
+                    <a class="btn secondary" href="https://www.francoficara.com" target="_blank" rel="noopener">
+                        Visita francoficara.com
+                    </a>
+                </div>
+            </div>
+
+            <div class="card visual">
+                <div class="logo-box">
+                    <div class="logo-circle">RL</div>
+                    <h2>Radio Luma</h2>
+                    <p>La voce accesa di Franco & Luma Studios</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="stations">
+            <div class="station">
+                <h3>Musica</h3>
+                <p>Una selezione pensata per tenere compagnia senza urlare addosso all’anima.</p>
+            </div>
+
+            <div class="station">
+                <h3>Franco & Luma</h3>
+                <p>Ironia, racconti, esperimenti creativi e piccoli lampi da laboratorio digitale.</p>
+            </div>
+
+            <div class="station">
+                <h3>Scuola e futuro</h3>
+                <p>Uno spazio per idee, didattica, tecnologia e fantasia con i piedi ancora ben piantati nella realtà.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        © 2026 Franco Ficara · Radio Luma PRO
+    </footer>
+</body>
+</html>
